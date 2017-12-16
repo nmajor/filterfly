@@ -8,7 +8,7 @@ class FilterOptions extends Component {
     return filterFly.filters().map((filter, index) => {
       return (<FilterOption
         key={index}
-        onClick={this.props.selectFilter}
+        onClick={this.props.onSelect}
         filter={filter}
         filterFly={filterFly}
       />);

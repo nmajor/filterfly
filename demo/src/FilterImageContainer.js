@@ -10,21 +10,34 @@ class FilterImageContainer extends Component {
     this.state = {
       filter: 'original',
       imageLoaded: false,
+      filterFly: null,
     };
 
-    this.image = this.image || new Image();
-    this.image.crossOrigin = 'Anonymous';
-    this.image.origin = 'Anonymous';
-    this.image.onload = () => {
-      this.filterFly = new FilterFly(this.image);
-      this.setState({ imageLoaded: true });
+    this.setFilter = this.setFilter.bind(this);
+    this.setImage = this.setImage.bind(this);
+
+    this.setImage('http://nmajor.com/assets/images/me.jpg');
+  }
+  setImage() {
+    const image = new Image();
+    image.crossOrigin = 'Anonymous';
+    image.origin = 'Anonymous';
+    image.onload = () => {
+      this.setState({
+        imageLoaded: true,
+        filterFly: new FilterFly(image)
+      });
     };
-    this.image.src = 'http://nmajor.com/assets/images/me.jpg';
+    image.src = 'http://nmajor.com/assets/images/me.jpg';
+  }
+  setFilter(filter) {
+    this.setState({ filter })
   }
   render() {
     const {
       filter,
       imageLoaded,
+      filterFly,
     } = this.state;
 
     if (!imageLoaded) {
@@ -35,10 +48,11 @@ class FilterImageContainer extends Component {
       <div className="FilterImageContainer">
         <FilterImage
           filter={filter}
-          filterFly={this.filterFly}
+          filterFly={filterFly}
         />
         <FilterOptions
-          filterFly={this.filterFly}
+          onSelect={this.setFilter}
+          filterFly={filterFly}
         />
       </div>
     );

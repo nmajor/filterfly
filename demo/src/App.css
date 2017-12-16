@@ -1,6 +1,20 @@
+html, body, #root { height: 100% }
+
+.App {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FilterImageContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .FilterOption {
   height: 80px;
-
 }
 
 .FilterOption img {
