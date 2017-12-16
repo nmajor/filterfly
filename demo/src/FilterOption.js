@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 
-class FilterImage extends Component {
+class FilterOption extends Component {
   constructor(props, context) {
     super(props, context);
+
+    this.state = {
+      imageLoaded: false,
+    }
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    const { onClick, filter } = this.props;
+
+    onClick(filter);
   }
   render() {
     const { filterFly, filter } = this.props;
@@ -11,11 +22,11 @@ class FilterImage extends Component {
     const url = filterFly.toDataURL(res);
 
     return (
-      <div className="FilterImage">
+      <div className="FilterOption" onClick={this.handleClick}>
         <img src={url} role="presentation" />
       </div>
     );
   }
 }
 
-export default FilterImage;
+export default FilterOption;

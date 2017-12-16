@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FilterImageContainer from './FilterImageContainer';
+import './App.css';
 
 class App extends Component {
   render() {
