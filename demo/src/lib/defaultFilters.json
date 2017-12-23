@@ -1,5 +1,18 @@
 {
   "original": {},
+  "Filter1": {
+    "levels": [ "b", 23 ],
+    "colorOverlay": [ "#ffcc00", 20 ],
+    "brightness": [ -10 ],
+    "vignette": [ 5, 5 ]
+  },
+  "Filter2": {
+    "brightness": [ -10 ],
+    "contrast": [ 5 ],
+    "colorOverlay": [ "#eddd9e", 10 ],
+    "saturation": [ -8 ],
+    "vignette": [ 3, 6 ]
+  },
   "Grayscale": {
     "grayscale": []
   },

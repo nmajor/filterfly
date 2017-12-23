@@ -18,7 +18,6 @@ class Vignette extends Effect {
     ];
   }
   apply(pixels, radius, spread) {
-    console.log('blah hi v', radius, radius);
     // spread 1..10
     // radius 1..10
     spread = spread || 5;

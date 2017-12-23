@@ -13,7 +13,6 @@ class Contrast extends Effect {
     ];
   }
   apply(pixels, adjustment) {
-    console.log('blah hi', pixels, adjustment);
     // adjustment -100..100
     adjustment = (adjustment / 100) * 255;
 
