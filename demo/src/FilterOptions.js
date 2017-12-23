@@ -5,7 +5,7 @@ class FilterOptions extends Component {
   renderFilterThumbs() {
     const { filterFly } = this.props;
 
-    return filterFly.filters().map((filter, index) => {
+    return filterFly.availableFilters().map((filter, index) => {
       return (<FilterOption
         key={index}
         onClick={this.props.onSelect}

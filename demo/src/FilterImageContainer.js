@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FilterFly from './FilterFly';
+import FilterFly from './lib/FilterFly';
 import FilterImage from './FilterImage';
 import FilterOptions from './FilterOptions';
 

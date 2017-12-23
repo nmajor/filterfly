@@ -1,0 +1,27 @@
+{
+  "original": {},
+  "Grayscale": {
+    "grayscale": []
+  },
+  "Brightness": {
+    "brightness": [ 50 ]
+  },
+  "Contrast": {
+    "contrast": [ 50 ]
+  },
+  "ColorOverlay": {
+    "colorOverlay": [ "#FFFFFF", 50 ]
+  },
+  "Levels": {
+    "levels": [ "r", 50 ]
+  },
+  "Vignette": {
+    "vignette": [ 1, 1 ]
+  },
+  "Saturation": {
+    "saturation": [ 50 ]
+  },
+  "Hue": {
+    "hue": [ 50 ]
+  }
+}
