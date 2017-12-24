@@ -4,7 +4,7 @@ class Brightness extends Effect {
   constructor() {
     super();
 
-    this.props = [
+    this.settings = [
       {
         name: 'Level',
         range: [ -100, 100],

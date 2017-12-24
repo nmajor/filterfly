@@ -7,6 +7,8 @@ class FilterImage extends Component {
   render() {
     const { filterFly, filter } = this.props;
 
+    console.log('blah hi', filter);
+
     const res = filterFly.filterImage(filter);
     const url = filterFly.toDataURL(res);
 

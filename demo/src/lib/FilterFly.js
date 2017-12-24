@@ -14,14 +14,16 @@ class FilterFly {
     this.image = image;
     this.filters = initialFilters || filters;
 
-    this.brightness = new Brightness();
-    this.contrast = new Contrast();
-    this.grayscale = new Grayscale();
-    this.colorOverlay = new ColorOverlay();
-    this.levels = new Levels();
-    this.vignette = new Vignette();
-    this.saturation = new Saturation();
-    this.hue = new Hue();
+    this.effects = {
+      brightness: new Brightness(),
+      contrast: new Contrast(),
+      grayscale: new Grayscale(),
+      colorOverlay: new ColorOverlay(),
+      levels: new Levels(),
+      vignette: new Vignette(),
+      saturation: new Saturation(),
+      hue: new Hue(),
+    }
   }
   getPixels() {
     const c = this.getCanvas(this.image.width, this.image.height);
@@ -59,7 +61,7 @@ class FilterFly {
   applyFilter(pixels, filter) {
     for (let effect in filter) {
       if (filter.hasOwnProperty(effect)) {
-        pixels = this[effect].apply.apply(this[effect], [pixels, ...filter[effect]]);
+        pixels = this.effects[effect].apply.apply(this.effects[effect], [pixels, ...filter[effect]]);
       }
     }
 

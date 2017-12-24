@@ -4,7 +4,7 @@ class Grayscale extends Effect {
   constructor() {
     super();
 
-    this.props = [];
+    this.settings = [];
   }
   apply(pixels) {
     const d = pixels.data;

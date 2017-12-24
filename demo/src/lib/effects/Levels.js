@@ -4,7 +4,7 @@ class Levels extends Effect {
   constructor() {
     super();
 
-    this.props = [
+    this.settings = [
       {
         name: 'Color',
         options: ['r', 'g', 'b'],

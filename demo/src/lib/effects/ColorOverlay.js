@@ -4,7 +4,7 @@ class ColorOverlay extends Effect {
   constructor() {
     super();
 
-    this.props = [
+    this.settings = [
       {
         name: 'Color',
         default: '#FFFFFF',

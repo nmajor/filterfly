@@ -4,7 +4,7 @@ class Vignette extends Effect {
   constructor() {
     super();
 
-    this.props = [
+    this.settings = [
       {
         name: 'Radius',
         range: [1, 10],

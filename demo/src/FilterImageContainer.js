@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FilterFly from './lib/FilterFly';
 import FilterImage from './FilterImage';
 import FilterOptions from './FilterOptions';
+import FilterEffects from './FilterEffects';
 
 class FilterImageContainer extends Component {
   constructor(props, context) {
@@ -31,6 +32,7 @@ class FilterImageContainer extends Component {
     image.src = 'http://nmajor.com/assets/images/me.jpg';
   }
   setFilter(filter) {
+    console.log('blah setting filter', filter);
     this.setState({ filter })
   }
   render() {
@@ -39,6 +41,8 @@ class FilterImageContainer extends Component {
       imageLoaded,
       filterFly,
     } = this.state;
+
+    console.log('blah hi', filter);
 
     if (!imageLoaded) {
       return (<div>Loading Image...</div>);
@@ -53,6 +57,11 @@ class FilterImageContainer extends Component {
         <FilterOptions
           onSelect={this.setFilter}
           filterFly={filterFly}
+        />
+        <FilterEffects
+          filter={filter}
+          filterFly={filterFly}
+          onChange={this.setFilter}
         />
       </div>
     );
