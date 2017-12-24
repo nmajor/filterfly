@@ -1,0 +1,12 @@
+.filter-image {
+  padding: 50px 0;
+  margin-bottom: 20px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-image img {
+  max-height: 450px;
+}

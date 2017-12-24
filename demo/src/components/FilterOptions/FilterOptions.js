@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FilterOptions.css'
 import FilterOption from '../FilterOption/FilterOption';
 
 class FilterOptions extends Component {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FilterImage.css';
 
 class FilterImage extends Component {
   constructor(props, context) {
@@ -6,8 +7,6 @@ class FilterImage extends Component {
   }
   render() {
     const { filterFly, filter } = this.props;
-
-    console.log('blah hi', filter);
 
     const res = filterFly.filterImage(filter);
     const url = filterFly.toDataURL(res);
