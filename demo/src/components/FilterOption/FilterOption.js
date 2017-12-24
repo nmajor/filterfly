@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FilterOption.css'
 
 class FilterOption extends Component {
   constructor(props, context) {
@@ -22,7 +23,7 @@ class FilterOption extends Component {
     const url = filterFly.toDataURL(res);
 
     return (
-      <div className="FilterOption" onClick={this.handleClick}>
+      <div className="filter-option" onClick={this.handleClick}>
         <img src={url} role="presentation" />
       </div>
     );

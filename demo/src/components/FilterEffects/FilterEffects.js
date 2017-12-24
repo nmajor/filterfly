@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './FilterEffects.css'
 import _ from 'lodash';
-import FilterEffect from './FilterEffect';
+import FilterEffect from '../FilterEffect/FilterEffect';
 
 class FilterEffects extends Component {
   constructor(props, context) {
@@ -47,7 +48,7 @@ class FilterEffects extends Component {
   }
   render() {
     return (
-      <div style={{ width: "300px" }} className="FilterEffects">
+      <div style={{ width: "300px" }} className="filter-effects">
         {this.renderEffects()}
       </div>
     );

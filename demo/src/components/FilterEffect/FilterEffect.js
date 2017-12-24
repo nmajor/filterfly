@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FilterEffect.css'
 import _ from 'lodash';
 import Slider, { Handle } from 'rc-slider';
 import Tooltip from 'rc-tooltip';
@@ -46,6 +47,7 @@ class FilterEffect extends Component {
   }
   renderRangeSetting(setting, value, index) {
     return (<div key={index}>
+      <div className="setting-data">{setting.name}</div>
       <Slider
         min={setting.range[0]}
         max={setting.range[1]}
@@ -70,8 +72,8 @@ class FilterEffect extends Component {
     const { name } = this.props;
 
     return (
-      <div className="FilterEffect">
-        {name}
+      <div className="filter-effect">
+        <div className="effect-name">{_.startCase(name)}</div>
         {this.renderSettings()}
       </div>
     );

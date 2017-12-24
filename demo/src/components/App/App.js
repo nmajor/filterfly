@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import FilterImageContainer from './FilterImageContainer';
+import FilterImageContainer from '../ImageContainer/ImageContainer';
 import './App.css';
 
 class App extends Component {
   render() {
-
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
+          <div>FilterFly.js</div>
         </header>
         <FilterImageContainer />
       </div>

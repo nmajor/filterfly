@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FilterOption from './FilterOption';
+import FilterOption from '../FilterOption/FilterOption';
 
 class FilterOptions extends Component {
   renderFilterThumbs() {
@@ -16,7 +16,7 @@ class FilterOptions extends Component {
   }
   render() {
     return (
-      <div className="FilterOptions">
+      <div className="filter-options">
         {this.renderFilterThumbs()}
       </div>
     );

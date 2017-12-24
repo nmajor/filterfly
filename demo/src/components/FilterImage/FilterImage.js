@@ -13,7 +13,7 @@ class FilterImage extends Component {
     const url = filterFly.toDataURL(res);
 
     return (
-      <div className="FilterImage">
+      <div className="filter-image">
         <img src={url} role="presentation" />
       </div>
     );

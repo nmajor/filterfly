@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import FilterFly from './lib/FilterFly';
-import FilterImage from './FilterImage';
-import FilterOptions from './FilterOptions';
-import FilterEffects from './FilterEffects';
+import FilterFly from '../../lib/FilterFly';
+import FilterImage from '../FilterImage/FilterImage';
+import FilterOptions from '../FilterOptions/FilterOptions';
+import FilterEffects from '../FilterEffects/FilterEffects';
 
-class FilterImageContainer extends Component {
+class ImageContainer extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -32,7 +32,6 @@ class FilterImageContainer extends Component {
     image.src = 'http://nmajor.com/assets/images/me.jpg';
   }
   setFilter(filter) {
-    console.log('blah setting filter', filter);
     this.setState({ filter })
   }
   render() {
@@ -42,30 +41,32 @@ class FilterImageContainer extends Component {
       filterFly,
     } = this.state;
 
-    console.log('blah hi', filter);
-
     if (!imageLoaded) {
       return (<div>Loading Image...</div>);
     }
 
     return (
-      <div className="FilterImageContainer">
-        <FilterImage
-          filter={filter}
-          filterFly={filterFly}
-        />
-        <FilterOptions
-          onSelect={this.setFilter}
-          filterFly={filterFly}
-        />
-        <FilterEffects
-          filter={filter}
-          filterFly={filterFly}
-          onChange={this.setFilter}
-        />
+      <div className="container-fluid">
+        <div className="col-md-8 container-main">
+          <FilterImage
+            filter={filter}
+            filterFly={filterFly}
+          />
+          <FilterOptions
+            onSelect={this.setFilter}
+            filterFly={filterFly}
+          />
+        </div>
+        <div className="col-md-4 container-aside">
+          <FilterEffects
+            filter={filter}
+            filterFly={filterFly}
+            onChange={this.setFilter}
+          />
+        </div>
       </div>
     );
   }
 }
 
-export default FilterImageContainer;
+export default ImageContainer;
