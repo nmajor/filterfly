@@ -1,7 +1,7 @@
 {
   "original": {},
   "Filter1": {
-    "levels": [ "b", 23 ],
+    "levels": [ 0, 0, 23 ],
     "colorOverlay": [ "#ffcc00", 20 ],
     "brightness": [ -10 ],
     "vignette": [ 5, 5 ]
@@ -26,7 +26,7 @@
     "colorOverlay": [ "#FFFFFF", 50 ]
   },
   "Levels": {
-    "levels": [ "r", 50 ]
+    "levels": [ 50, 0, 0 ]
   },
   "Vignette": {
     "vignette": [ 1, 1 ]

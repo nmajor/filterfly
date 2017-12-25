@@ -6,33 +6,34 @@ class Levels extends Effect {
 
     this.settings = [
       {
-        name: 'Color',
-        options: ['r', 'g', 'b'],
-        default: 'b',
+        name: 'Red',
+        range: [-100, 100],
+        default: 0,
       },
       {
-        name: 'Level',
+        name: 'Green',
+        range: [-100, 100],
+        default: 0,
+      },
+      {
+        name: 'Blue',
         range: [-100, 100],
         default: 0,
       }
     ];
   }
-  apply(pixels, color, adjustment) {
+  apply(pixels, rAdj, gAdj, bAdj) {
     // adjustment -100..100
     // color 'r', 'g', or 'b'
-    adjustment = adjustment || 10;
-    adjustment = (adjustment / 100) * 255;
-    color = color || 'r';
+    rAdj = (rAdj / 100) * 255;
+    gAdj = (gAdj / 100) * 255;
+    bAdj = (bAdj / 100) * 255;
 
-    const colorOffsetMap = {
-      r: 0,
-      g: 1,
-      b: 2,
-    };
-    const offset = colorOffsetMap[color];
     const d = pixels.data;
     for (let i = 0; i < d.length; i += 4) {
-      d[i + offset] = this._truncatePixelValue(adjustment + d[i + offset]);
+      d[i] = this._truncatePixelValue(rAdj + d[i]);
+      d[i + 1] = this._truncatePixelValue(gAdj + d[i + 1]);
+      d[i + 2] = this._truncatePixelValue(bAdj + d[i + 2]);
     }
     return pixels;
   }
