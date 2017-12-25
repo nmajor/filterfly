@@ -13,6 +13,7 @@ class Hue extends Effect {
     ];
   }
   apply(pixels, adjustment) {
+    if (adjustment === 0) return pixels;
     // adjustment -100..100
     adjustment = adjustment || 20;
     adjustment = 1 + ((adjustment / 100) * 4);

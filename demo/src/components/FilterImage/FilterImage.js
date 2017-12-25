@@ -13,7 +13,7 @@ class FilterImage extends Component {
 
     return (
       <div className="filter-image">
-        <img src={url} role="presentation" />
+        <img src={url} alt="" />
       </div>
     );
   }

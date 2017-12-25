@@ -24,7 +24,7 @@ class FilterOption extends Component {
 
     return (
       <div className="filter-option" onClick={this.handleClick}>
-        <img src={url} role="presentation" />
+        <img src={url} alt="" />
       </div>
     );
   }

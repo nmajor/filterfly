@@ -17,9 +17,9 @@ class ImageContainer extends Component {
     this.setFilter = this.setFilter.bind(this);
     this.setImage = this.setImage.bind(this);
 
-    this.setImage('http://nmajor.com/assets/images/me.jpg');
+    this.setImage('/img/pyramid.jpg');
   }
-  setImage() {
+  setImage(img) {
     const image = new Image();
     image.crossOrigin = 'Anonymous';
     image.origin = 'Anonymous';
@@ -29,7 +29,8 @@ class ImageContainer extends Component {
         filterFly: new FilterFly(image)
       });
     };
-    image.src = 'http://nmajor.com/assets/images/me.jpg';
+    // image.src = 'http://nmajor.com/assets/images/me.jpg';
+    image.src = img;
   }
   setFilter(filter) {
     this.setState({ filter })

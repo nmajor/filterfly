@@ -7,7 +7,8 @@ class ColorOverlay extends Effect {
     this.settings = [
       {
         name: 'Color',
-        default: '#FFFFFF',
+        hexColor: true,
+        default: '#d2c379',
       },
       {
         name: 'Level',

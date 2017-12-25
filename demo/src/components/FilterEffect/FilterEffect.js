@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SliderPicker } from 'react-color';
 import './FilterEffect.css'
 import _ from 'lodash';
 import Slider, { Handle } from 'rc-slider';
@@ -36,8 +37,12 @@ class FilterEffect extends Component {
     const value = nextProps.value || nextProps.effect.settings.map((set) => { return set.default });
     this.setState({ value });
   }
-  submitEffectValue() {
-    this.props.onChange(this.props.name, this.state.value);
+  submitEffectValue(index, value) {
+    const newValue = [ ...this.state.value ];
+    newValue[index] = value;
+
+    this.props.onChange(this.props.name, newValue);
+    this.setState({ value: newValue });
   }
   handleValueChange(index, value) {
     const newValue = [ ...this.state.value ];
@@ -46,15 +51,31 @@ class FilterEffect extends Component {
     this.setState({ value: newValue });
   }
   renderRangeSetting(setting, value, index) {
-    return (<div key={index}>
-      <div className="setting-data">{setting.name}</div>
+    return (<div className="effect-setting" key={index}>
+      <div>
+        <span className="name">{setting.name}</span>
+        <span className="value">{value}</span>
+      </div>
       <Slider
         min={setting.range[0]}
         max={setting.range[1]}
         value={value}
         handle={handle}
         onChange={(val) => { this.handleValueChange(index, val); }}
-        onAfterChange={this.submitEffectValue}
+        onAfterChange={(val) => { this.submitEffectValue(index, val); }}
+      />
+    </div>);
+  }
+  renderColorSetting(setting, value, index) {
+    return (<div className="effect-setting" key={index}>
+      <div>
+        <span className="name">{setting.name}</span>
+        <span className="value">{value}</span>
+      </div>
+      <SliderPicker
+        color={value}
+        onChange={(color) => { this.handleValueChange(index, color.hex); }}
+        onChangeComplete={(color) => { this.submitEffectValue(index, color.hex); }}
       />
     </div>);
   }
@@ -63,7 +84,13 @@ class FilterEffect extends Component {
 
     const values = effect.settings.map((setting, index) => {
       const val = this.state.value[index];
-      if (setting.range) return this.renderRangeSetting(setting, val, index);
+      if (setting.range) {
+        return this.renderRangeSetting(setting, val, index);
+      } else if (setting.hexColor) {
+        return this.renderColorSetting(setting, val, index);
+      }
+
+      return null;
     });
 
     return (<div>{values}</div>);
