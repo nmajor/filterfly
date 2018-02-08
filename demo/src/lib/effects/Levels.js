@@ -7,22 +7,24 @@ class Levels extends Effect {
     this.settings = [
       {
         name: 'Red',
-        range: [-100, 100],
+        range: [-50, 50],
         default: 0,
       },
       {
         name: 'Green',
-        range: [-100, 100],
+        range: [-50, 50],
         default: 0,
       },
       {
         name: 'Blue',
-        range: [-100, 100],
+        range: [-50, 50],
         default: 0,
       }
     ];
   }
   apply(pixels, rAdj, gAdj, bAdj) {
+    console.log('blah apply levels');
+
     // adjustment -100..100
     // color 'r', 'g', or 'b'
     rAdj = (rAdj / 100) * 255;

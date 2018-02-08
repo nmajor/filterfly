@@ -7,7 +7,7 @@ class Contrast extends Effect {
     this.settings = [
       {
         name: 'Level',
-        range: [ -100, 100],
+        range: [ -50, 50],
         default: 0,
       }
     ];

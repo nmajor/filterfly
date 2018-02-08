@@ -12,7 +12,7 @@ class ColorOverlay extends Effect {
       },
       {
         name: 'Level',
-        range: [0, 100],
+        range: [0, 50],
         default: 0,
       }
     ];

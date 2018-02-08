@@ -7,27 +7,27 @@ class Vignette extends Effect {
     this.settings = [
       {
         name: 'Radius',
-        range: [1, 10],
+        range: [0, 100],
         default: 0,
       },
       {
         name: 'Spread',
-        range: [1, 10],
+        range: [0, 100],
         default: 0,
       },
     ];
   }
   apply(pixels, radius, spread) {
-    // spread 1..10
-    // radius 1..10
-    spread = spread || 5;
-    spread = (spread / 10) * 20;
-    spread = 1 / spread;
+    if (radius === 0 || spread === 0) return pixels;
+
+    const maxSpread = 20;
+    spread = 1 / (maxSpread * (spread / 100));
+
+    const maxRadius = Math.sqrt(Math.pow((pixels.width / 2), 2) + Math.pow((pixels.height / 2), 2));
+    const minRadius = maxRadius / 2;
+    radius = maxRadius - ((maxRadius - minRadius) * (radius / 100));
 
     const mid = [pixels.width / 2, pixels.height / 2];
-    radius = radius || 5;
-    radius = ((mid[1] / 2) + ((mid[1] / 10) * radius));
-
     const d = pixels.data;
     for (let i = 0; i < d.length; i += 4) {
       const pixelNum = i / 4;
@@ -35,8 +35,8 @@ class Vignette extends Effect {
       const pos = [-(mid[0] - pixelNum % pixels.width), mid[1] - parseInt(pixelNum / pixels.width, 10)];
 
       // Calculate the distance using the pythagorean theorem
-      // Also offset it by w/h to make it eliptical
-      const dist = Math.sqrt(Math.pow(pos[0], 2) + Math.pow(pos[1] * (pixels.width / pixels.height), 2));
+      const dist = Math.sqrt(Math.pow(pos[0], 2) + Math.pow(pos[1], 2));
+      // const dist = Math.sqrt(Math.pow(pos[0], 2) + Math.pow(pos[1] * (pixels.width / pixels.height), 2));
 
       // By only adjusting when the distance is equal to height/2
       // It will only affect the corners

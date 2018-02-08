@@ -13,6 +13,7 @@ class Hue extends Effect {
     ];
   }
   apply(pixels, adjustment) {
+    const max = 0.9;
     if (adjustment === 0) return pixels;
     // adjustment -100..100
     adjustment = adjustment || 20;
@@ -22,10 +23,12 @@ class Hue extends Effect {
     for (let i = 0; i < d.length; i += 4) {
       const hsv = this._rgbToHsv([d[i], d[i + 1], d[i + 2]]);
       if (adjustment > 0) {
-        hsv[0] = hsv[0] * adjustment;
+        const diff = max - hsv[0];
+        hsv[0] = hsv[0] + (diff * adjustment);
       } else {
-        hsv[0] = hsv[0] / Math.abs(adjustment);
+        hsv[0] = hsv[0] - (hsv[0] * Math.abs(adjustment));;
       }
+
       const rgb = this._hsvToRgb(hsv);
       d[i] = rgb[0];
       d[i + 1] = rgb[1];

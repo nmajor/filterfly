@@ -5,26 +5,23 @@ class FilterOption extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {
-      imageLoaded: false,
-    }
+    const { filterFly, filter } = props;
+    const res = filterFly.filterImage(filter);
+    const url = filterFly.toDataURL(res);
+    this.imageUrl = url;
 
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
     const { onClick, filter } = this.props;
 
     onClick(filter);
   }
   render() {
-    const { filterFly, filter } = this.props;
-
-    const res = filterFly.filterImage(filter);
-    const url = filterFly.toDataURL(res);
-
     return (
       <div className="filter-option" onClick={this.handleClick}>
-        <img src={url} alt="" />
+        <img src={this.imageUrl} alt="" />
       </div>
     );
   }
