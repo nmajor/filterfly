@@ -19,9 +19,14 @@ class FilterOption extends Component {
     onClick(filter);
   }
   render() {
+    const { onClick, filter, active } = this.props;
+
     return (
-      <div className="filter-option" onClick={this.handleClick}>
-        <img src={this.imageUrl} alt="" />
+      <div className={`filter-option ${active ? 'active' : ''}`} onClick={this.handleClick}>
+        <div className="name">{filter}</div>
+        <div className="image">
+          <img src={this.imageUrl} alt="" />
+        </div>
       </div>
     );
   }

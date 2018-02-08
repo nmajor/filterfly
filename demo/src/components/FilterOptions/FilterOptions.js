@@ -4,7 +4,7 @@ import FilterOption from '../FilterOption/FilterOption';
 
 class FilterOptions extends Component {
   renderFilterThumbs() {
-    const { filterFly } = this.props;
+    const { filterFly, activeFilter } = this.props;
 
     return filterFly.availableFilters().map((filter, index) => {
       return (<FilterOption
@@ -12,6 +12,7 @@ class FilterOptions extends Component {
         onClick={this.props.onSelect}
         filter={filter}
         filterFly={filterFly}
+        active={activeFilter === filter}
       />);
     });
   }

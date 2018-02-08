@@ -64,6 +64,7 @@ class ImageContainer extends Component {
             imageUrl={imageUrl}
           />
           <FilterOptions
+            activeFilter={filter}
             onSelect={this.setFilter}
             filterFly={filterFly}
           />
