@@ -22,7 +22,7 @@ class FilterFly {
       levels: new Levels(),
       vignette: new Vignette(),
       saturation: new Saturation(),
-      hue: new Hue(),
+      // hue: new Hue(),
     }
   }
   getPixels() {

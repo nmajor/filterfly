@@ -1,4 +1,13 @@
-.effect-name {}
-.effect-setting {}
-.effect-setting .name {}
-.effect-setting .value {}
+.filter-effect {
+  padding: 5px;
+}
+.filter-effect .effect-name {
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 3px;
+}
+.filter-effect .effect-setting {}
+.filter-effect .effect-setting .name {}
+.filter-effect .effect-setting .value {
+  margin-left: 10px;
+}

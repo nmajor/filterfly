@@ -23,12 +23,9 @@ class FilterEffects extends Component {
     newFilter[effect] = settings;
 
     this.props.onChange(newFilter);
-
-    console.log('blah handleEffectChange', effect, settings);
   }
   renderEffects() {
     const { filter, filterFly } = this.props;
-    console.log('blah hey filter', filter);
 
     let filterObj = filter;
 
@@ -37,6 +34,8 @@ class FilterEffects extends Component {
     }
 
     return _.map(filterFly.effects, (effect, name) => {
+      if (effect.settings.length == 0) return null;
+
       return (<FilterEffect
         key={name}
         name={name}

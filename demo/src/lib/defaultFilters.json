@@ -33,8 +33,5 @@
   },
   "Saturation": {
     "saturation": [ 50 ]
-  },
-  "Hue": {
-    "hue": [ 50 ]
   }
 }
